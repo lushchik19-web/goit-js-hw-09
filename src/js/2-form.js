@@ -9,12 +9,8 @@ const keyInput = 'feedback-form-state';
 formEl.addEventListener('input', formInput);
 
 function formInput(event) {
-  console.log(event);
   const name = event.target.name;
   const value = event.target.value;
-
-  console.log(name);
-  console.log(value);
 
   formData[name] = value;
 
@@ -38,6 +34,11 @@ function hendlerClick(event) {
     alert('Fill please all fields');
     return;
   }
-  event.preventDefult();
-  console.log(formData.value);
+
+  event.preventDefault();
+  console.log(formData.email, formData.message);
+  localStorage.removeItem(keyInput);
+
+  inputEl.value = '';
+  textareaEl.value = '';
 }
