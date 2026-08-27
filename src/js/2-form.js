@@ -34,13 +34,14 @@ const formEL = document.querySelector('.feedback-form');
 formEL.addEventListener('submit', hendlerClick);
 
 function hendlerClick(event) {
+  event.preventDefault();
+
   if (formData.email === '' || formData.message === '') {
     alert('Fill please all fields');
     return;
   }
 
-  event.preventDefault();
-  console.log(formData.email, formData.message);
+  console.log(formData);
   localStorage.removeItem(keyInput);
 
   formData = { email: '', message: '' };
